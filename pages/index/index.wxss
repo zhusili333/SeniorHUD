@@ -1,0 +1,111 @@
+/* pages/index/index.wxss */
+.container {
+  padding-bottom: 40rpx;
+}
+
+.location-info {
+  padding: 20rpx 30rpx;
+  background: white;
+  margin: 10rpx 0;
+}
+
+.location-label {
+  font-size: 32rpx;
+  color: #666;
+}
+
+.location-text {
+  font-size: 34rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  margin-top: 8rpx;
+}
+
+.search-box {
+  display: flex;
+  padding: 20rpx 30rpx;
+  background: white;
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
+  font-size: 34rpx;
+}
+
+.search-btn {
+  margin-left: 20rpx;
+  width: 160rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #1296db;
+  color: white;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  padding: 0;
+}
+
+.search-results {
+  background: white;
+  margin: 10rpx 0;
+  max-height: 400rpx;
+  overflow-y: auto;
+}
+
+.result-item {
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.result-item:active {
+  background: #f0f0f0;
+}
+
+.result-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+
+.result-address {
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 6rpx;
+  display: block;
+}
+
+.btn-group {
+  margin-top: 20rpx;
+}
+
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  margin-top: 10rpx;
+}
+
+.status-dot {
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+
+.connected {
+  color: #27ae60;
+}
+
+.disconnected {
+  color: #e74c3c;
+}
+
+.status-text {
+  font-size: 30rpx;
+  color: #666;
+}

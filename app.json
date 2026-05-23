@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/navigate/navigate",
+    "pages/bluetooth/bluetooth"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "适老化HUD导航",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取您的位置以提供导航服务"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation"
+  ]
+}

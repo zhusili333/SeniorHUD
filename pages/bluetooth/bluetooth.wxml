@@ -1,0 +1,69 @@
+<!-- pages/bluetooth/bluetooth.wxml -->
+<view class="bt-container">
+  
+  <view class="bt-header">
+    <text class="bt-title">连接HUD显示设备</text>
+    <text class="bt-subtitle">请确保ESP32设备已开启并在附近</text>
+  </view>
+
+  <!-- 当前连接状态 -->
+  <view class="connection-status">
+    <view class="status-card {{isConnected ? 'status-connected' : 'status-disconnected'}}">
+      <text class="status-icon">{{isConnected ? '✅' : '❌'}}</text>
+      <text class="status-text">{{isConnected ? '已连接' : '未连接'}}</text>
+      <text class="device-name" wx:if="{{connectedName}}">设备: {{connectedName}}</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="bt-actions">
+    <button class="btn-primary" bindtap="onScan" loading="{{scanning}}" disabled="{{scanning}}">
+      {{scanning ? '扫描中...' : '🔍 扫描设备'}}
+    </button>
+    <button class="btn-danger" bindtap="onDisconnect" wx:if="{{isConnected}}">
+      断开连接
+    </button>
+  </view>
+
+  <!-- 设备列表 -->
+  <view class="device-list" wx:if="{{devices.length > 0}}">
+    <text class="list-title">发现的设备（点击连接）：</text>
+    <view 
+      class="device-item {{item.isHUD ? 'hud-device' : ''}}"
+      wx:for="{{devices}}" 
+      wx:key="deviceId"
+      bindtap="onConnect"
+      data-index="{{index}}"
+    >
+      <view class="device-info">
+        <text class="device-name-text">
+          {{item.isHUD ? '🎯 ' : ''}}{{item.name}}
+        </text>
+        <text class="device-id">{{item.deviceId}}</text>
+      </view>
+      <view class="device-rssi">
+        <text class="rssi-text">信号: {{item.RSSI}}dBm</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 测试区域 -->
+  <view class="test-section" wx:if="{{isConnected}}">
+    <text class="test-title">发送测试</text>
+    <button class="btn-primary" style="background:#27ae60;" bindtap="onTestSend">
+      📤 发送测试数据
+    </button>
+    <text class="test-result" wx:if="{{testResult}}">{{testResult}}</text>
+  </view>
+
+  <!-- 使用说明 -->
+  <view class="help-section">
+    <text class="help-title">📖 使用说明</text>
+    <text class="help-text">1. 确保手机蓝牙已开启</text>
+    <text class="help-text">2. 确保ESP32设备已通电并运行BLE程序</text>
+    <text class="help-text">3. 点击"扫描设备"查找附近设备</text>
+    <text class="help-text">4. 点击设备名称进行连接</text>
+    <text class="help-text">5. 连接成功后返回首页开始导航</text>
+  </view>
+
+</view>

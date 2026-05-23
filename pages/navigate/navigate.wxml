@@ -1,0 +1,77 @@
+<!-- pages/navigate/navigate.wxml -->
+<view class="nav-container">
+
+<!-- 顶部导航信息卡片（模拟HUD显示效果） -->
+<view class="hud-preview">
+  <view class="hud-card">
+    <!-- 转向箭头 -->
+    <view class="turn-icon-area">
+      <image 
+        class="turn-icon" 
+        src="/static/icons/{{currentStep.turnType || 'straight'}}.png"
+        mode="aspectFit"
+      />
+    </view>
+    
+    <!-- 导航指令 -->
+    <view class="nav-instruction">
+      <text class="distance-text">{{currentStep.distanceText || '--'}}</text>
+      <text class="instruction-text">{{currentStep.instruction || '准备出发'}}</text>
+      <text class="road-text">{{currentStep.road || ''}}</text>
+    </view>
+  </view>
+
+  <!-- 交规提醒 -->
+  <view class="traffic-alert" wx:if="{{trafficAlert}}">
+    <image class="alert-icon" src="/static/icons/{{trafficAlert.icon}}.png" mode="aspectFit"/>
+    <text class="alert-text">{{trafficAlert.message}}</text>
+  </view>
+</view>
+
+<!-- 地图 -->
+<map 
+  id="navMap"
+  latitude="{{latitude}}"
+  longitude="{{longitude}}"
+  scale="16"
+  show-location="true"
+  style="width: 100%; height: 450rpx;"
+  markers="{{markers}}"
+  polyline="{{polyline}}"
+  include-points="{{includePoints}}"
+/>
+
+<!-- 导航状态信息 -->
+<view class="nav-status">
+  <view class="status-item">
+    <text class="status-value">{{remainDistance}}</text>
+    <text class="status-label">剩余距离</text>
+  </view>
+  <view class="status-item">
+    <text class="status-value">{{remainTime}}</text>
+    <text class="status-label">预计用时</text>
+  </view>
+  <view class="status-item">
+    <text class="status-value">{{currentSpeed}} km/h</text>
+    <text class="status-label">当前速度</text>
+  </view>
+</view>
+
+<!-- 下一步预告 -->
+<view class="next-step" wx:if="{{nextStep}}">
+  <text class="next-label">接下来：</text>
+  <text class="next-text">{{nextStep.instruction}}</text>
+</view>
+
+<!-- ESP32发送状态 -->
+<view class="send-status">
+  <text class="send-dot {{isSending ? 'sending' : ''}}">●</text>
+  <text>{{isConnected ? '正在向HUD发送数据' : 'HUD未连接'}}</text>
+</view>
+
+<!-- 控制按钮 -->
+<view class="nav-controls">
+  <button class="btn-danger" bindtap="onStopNav">结束导航</button>
+</view>
+
+</view>

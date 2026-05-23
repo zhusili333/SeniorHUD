@@ -1,0 +1,152 @@
+/* pages/navigate/navigate.wxss */
+.nav-container {
+    background: #1a1a2e;
+    min-height: 100vh;
+  }
+  
+  /* HUD预览区域 - 模拟HUD显示效果 */
+  .hud-preview {
+    background: linear-gradient(180deg, #0f3460 0%, #16213e 100%);
+    padding: 30rpx;
+  }
+  
+  .hud-card {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20rpx;
+    border: 2rpx solid rgba(0, 210, 255, 0.3);
+  }
+  
+  .turn-icon-area {
+    width: 140rpx;
+    height: 140rpx;
+    flex-shrink: 0;
+  }
+  
+  .turn-icon {
+    width: 140rpx;
+    height: 140rpx;
+  }
+  
+  .nav-instruction {
+    flex: 1;
+    margin-left: 30rpx;
+  }
+  
+  .distance-text {
+    font-size: 60rpx;
+    font-weight: bold;
+    color: #00d2ff;
+    display: block;
+  }
+  
+  .instruction-text {
+    font-size: 36rpx;
+    color: white;
+    display: block;
+    margin-top: 10rpx;
+  }
+  
+  .road-text {
+    font-size: 28rpx;
+    color: #aaa;
+    display: block;
+    margin-top: 6rpx;
+  }
+  
+  /* 交规提醒 */
+  .traffic-alert {
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    background: rgba(231, 76, 60, 0.2);
+    border-radius: 10rpx;
+    border: 2rpx solid rgba(231, 76, 60, 0.5);
+  }
+  
+  .alert-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 16rpx;
+  }
+  
+  .alert-text {
+    color: #ff6b6b;
+    font-size: 34rpx;
+    font-weight: bold;
+  }
+  
+  /* 导航状态 */
+  .nav-status {
+    display: flex;
+    background: #16213e;
+    padding: 24rpx 0;
+  }
+  
+  .status-item {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .status-value {
+    display: block;
+    font-size: 40rpx;
+    font-weight: bold;
+    color: #00d2ff;
+  }
+  
+  .status-label {
+    display: block;
+    font-size: 24rpx;
+    color: #888;
+    margin-top: 6rpx;
+  }
+  
+  /* 下一步 */
+  .next-step {
+    padding: 20rpx 30rpx;
+    background: #16213e;
+    border-top: 1rpx solid #333;
+  }
+  
+  .next-label {
+    color: #888;
+    font-size: 26rpx;
+  }
+  
+  .next-text {
+    color: #ccc;
+    font-size: 30rpx;
+    margin-left: 10rpx;
+  }
+  
+  /* 发送状态 */
+  .send-status {
+    text-align: center;
+    padding: 16rpx;
+    color: #666;
+    font-size: 26rpx;
+  }
+  
+  .send-dot {
+    margin-right: 8rpx;
+    color: #666;
+  }
+  
+  .send-dot.sending {
+    color: #27ae60;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  /* 控制按钮 */
+  .nav-controls {
+    padding: 20rpx 30rpx;
+  }
